@@ -39,48 +39,115 @@ public class Board {
             return "mine";
         } else {
             // Check the surrounding 8 boxes, if any are mines then leave them, if tiles then click on them again
-            if (validRow(row + 1)){
-                if (board[row + 1][col] instanceof Mine){
-                    mines ++;
+            if (validRow(row + 1)) {
+                if (board[row + 1][col] instanceof Mine) {
+                    mines++;
+                    click(row + 1, col, true);
                 }
             }
-            if (validCol(col + 1)){
-                if (board[row][col + 1] instanceof Mine){
-                    mines ++;
+            if (validCol(col + 1)) {
+                if (board[row][col + 1] instanceof Mine) {
+                    mines++;
+                    click(row, col + 1, true);
                 }
             }
-            if (validRow(row - 1)){
-                if (board[row - 1][col] instanceof Mine){
-                    mines ++;
+            if (validCol(col - 1)) {
+                if (board[row][col - 1] instanceof Mine) {
+                    mines++;
+                    click(row, col - 1, true);
+                }
+            }
+            if (validRow(row - 1)) {
+                if (board[row - 1][col] instanceof Mine) {
+                    mines++;
+                    click(row - 1, col, true);
                 }
 
             }
-            if (validCol(col - 1) && validRow(row - 1)){
-                if (board[row - 1][col - 1] instanceof Mine){
-                    mines ++;
+            if (validCol(col - 1) && validRow(row - 1)) {
+                if (board[row - 1][col - 1] instanceof Mine) {
+                    mines++;
+                    click(row - 1, col - 1, true);
                 }
 
             }
-            if (validCol(col - 1) && validRow(row + 1)){
-                if (board[row + 1][col - 1] instanceof Mine){
-                    mines ++;
+            if (validCol(col - 1) && validRow(row + 1)) {
+                if (board[row + 1][col - 1] instanceof Mine) {
+                    mines++;
+                    click(row + 1, col - 1, true);
                 }
 
             }
-            if (validCol(col + 1) && validRow(row - 1)){
-                if (board[row - 1][col + 1] instanceof Mine){
-                    mines ++;
+            if (validCol(col + 1) && validRow(row - 1)) {
+                if (board[row - 1][col + 1] instanceof Mine) {
+                    mines++;
+                    click(row - 1, col + 1, true);
                 }
 
             }
-            if (validCol(col + 1) && validRow(row + 1)){
-                if (board[row + 1][col + 1] instanceof Mine){
-                    mines ++;
+            if (validCol(col + 1) && validRow(row + 1)) {
+                if (board[row + 1][col + 1] instanceof Mine) {
+                    mines++;
+                    click(row + 1, col + 1, true);
                 }
-
             }
         }
-        System.out.println(mines);
+        board[row][col].clickTile(mines);
+        return "safe";
+    }
+    public String click(int row, int col, boolean bool) {
+        int mines = 0;
+        if (board[row][col] instanceof Mine) {
+            return "mine";
+        } else {
+            // Check the surrounding 8 boxes, if any are mines then leave them, if tiles then click on them again
+            if (validRow(row + 1)) {
+                if (board[row + 1][col] instanceof Mine) {
+                    mines++;
+                }
+            }
+//            if (validCol(col + 1)) {
+//                if (board[row][col + 1] instanceof Mine) {
+//                    mines++;
+//                }
+//            }
+//            if (validCol(col - 1)) {
+//                if (board[row][col - 1] instanceof Mine) {
+//                    mines++;
+//                }
+//            }
+//            if (validRow(row - 1)) {
+//                if (board[row - 1][col] instanceof Mine) {
+//                    mines++;
+//                }
+//
+//            }
+//            if (validCol(col - 1) && validRow(row - 1)) {
+//                if (board[row - 1][col - 1] instanceof Mine) {
+//                    mines++;
+//                }
+//
+//            }
+//            if (validCol(col - 1) && validRow(row + 1)) {
+//                if (board[row + 1][col - 1] instanceof Mine) {
+//                    mines++;
+//
+//                }
+//
+//            }
+//            if (validCol(col + 1) && validRow(row - 1)) {
+//                if (board[row - 1][col + 1] instanceof Mine) {
+//                    mines++;
+//                }
+//
+//            }
+//            if (validCol(col + 1) && validRow(row + 1)) {
+//                if (board[row + 1][col + 1] instanceof Mine) {
+//                    mines++;
+//                }
+//            }
+//        }
+        }
         board[row][col].clickTile(mines);
         return "safe";
     }

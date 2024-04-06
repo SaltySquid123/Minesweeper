@@ -31,7 +31,14 @@ public class GameLogic {
             String str = board.click(row - 1,col - 1);
             if (str.equals("mine")){
                 System.out.println("Oh you clicked a mine! :(");
-                gameOver = true;
+                System.out.println("Do you want to play again? y/n");
+                String answer = scan.nextLine();
+                if (!answer.equals("y")){
+                    gameOver = true;
+                }
+                else {
+                    run();
+                }
             }
         }
     }
