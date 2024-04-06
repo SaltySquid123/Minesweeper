@@ -42,24 +42,32 @@ public class Board {
             if (validRow(row + 1)) {
                 if (board[row + 1][col] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row + 1, col, true);
                 }
             }
             if (validCol(col + 1)) {
                 if (board[row][col + 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row, col + 1, true);
                 }
             }
             if (validCol(col - 1)) {
                 if (board[row][col - 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row, col - 1, true);
                 }
             }
             if (validRow(row - 1)) {
                 if (board[row - 1][col] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row - 1, col, true);
                 }
 
@@ -67,6 +75,8 @@ public class Board {
             if (validCol(col - 1) && validRow(row - 1)) {
                 if (board[row - 1][col - 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row - 1, col - 1, true);
                 }
 
@@ -74,6 +84,8 @@ public class Board {
             if (validCol(col - 1) && validRow(row + 1)) {
                 if (board[row + 1][col - 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row + 1, col - 1, true);
                 }
 
@@ -81,6 +93,8 @@ public class Board {
             if (validCol(col + 1) && validRow(row - 1)) {
                 if (board[row - 1][col + 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row - 1, col + 1, true);
                 }
 
@@ -88,6 +102,8 @@ public class Board {
             if (validCol(col + 1) && validRow(row + 1)) {
                 if (board[row + 1][col + 1] instanceof Mine) {
                     mines++;
+                }
+                else {
                     click(row + 1, col + 1, true);
                 }
             }
@@ -106,47 +122,46 @@ public class Board {
                     mines++;
                 }
             }
-//            if (validCol(col + 1)) {
-//                if (board[row][col + 1] instanceof Mine) {
-//                    mines++;
-//                }
-//            }
-//            if (validCol(col - 1)) {
-//                if (board[row][col - 1] instanceof Mine) {
-//                    mines++;
-//                }
-//            }
-//            if (validRow(row - 1)) {
-//                if (board[row - 1][col] instanceof Mine) {
-//                    mines++;
-//                }
-//
-//            }
-//            if (validCol(col - 1) && validRow(row - 1)) {
-//                if (board[row - 1][col - 1] instanceof Mine) {
-//                    mines++;
-//                }
-//
-//            }
-//            if (validCol(col - 1) && validRow(row + 1)) {
-//                if (board[row + 1][col - 1] instanceof Mine) {
-//                    mines++;
-//
-//                }
-//
-//            }
-//            if (validCol(col + 1) && validRow(row - 1)) {
-//                if (board[row - 1][col + 1] instanceof Mine) {
-//                    mines++;
-//                }
-//
-//            }
-//            if (validCol(col + 1) && validRow(row + 1)) {
-//                if (board[row + 1][col + 1] instanceof Mine) {
-//                    mines++;
-//                }
-//            }
-//        }
+            if (validCol(col + 1)) {
+                if (board[row][col + 1] instanceof Mine) {
+                    mines++;
+                }
+            }
+            if (validCol(col - 1)) {
+                if (board[row][col - 1] instanceof Mine) {
+                    mines++;
+                }
+            }
+            if (validRow(row - 1)) {
+                if (board[row - 1][col] instanceof Mine) {
+                    mines++;
+                }
+
+            }
+            if (validCol(col - 1) && validRow(row - 1)) {
+                if (board[row - 1][col - 1] instanceof Mine) {
+                    mines++;
+                }
+
+            }
+            if (validCol(col - 1) && validRow(row + 1)) {
+                if (board[row + 1][col - 1] instanceof Mine) {
+                    mines++;
+
+                }
+
+            }
+            if (validCol(col + 1) && validRow(row - 1)) {
+                if (board[row - 1][col + 1] instanceof Mine) {
+                    mines++;
+                }
+
+            }
+            if (validCol(col + 1) && validRow(row + 1)) {
+                if (board[row + 1][col + 1] instanceof Mine) {
+                    mines++;
+                }
+            }
         }
         board[row][col].clickTile(mines);
         return "safe";

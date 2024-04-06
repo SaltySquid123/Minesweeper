@@ -10,12 +10,16 @@ public class GameLogic {
 
         System.out.println("Hello!");
 
-        while (!gameOver && !choice.equalsIgnoreCase("x")){
+        while (!gameOver){
             board.printBoard();
             System.out.println();
             System.out.println("Please input a square to click (normal x,y coordinates, separate with ,) or X to quit");
 
             choice = scan.nextLine();
+            if (choice.equalsIgnoreCase("x")){
+                gameOver = true;
+                break;
+            }
             String[] temp = choice.split(",");
             int col = Integer.parseInt(temp[0]);
             int row = Integer.parseInt(temp[1]);
@@ -41,5 +45,6 @@ public class GameLogic {
                 }
             }
         }
+        System.out.println("Goodbye!");
     }
 }
